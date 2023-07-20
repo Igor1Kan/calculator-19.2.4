@@ -66,9 +66,42 @@ def test_button_divide(calculator):
     assert calculator.f_num == 20
     assert calculator.number_entry.get() == ""
 
+
 def test_button_floor_div(calculator):
     calculator.number_entry.insert(0, "15")
     calculator.floor_div()
     assert calculator.math == "floor_div"
     assert calculator.f_num == 15
     assert calculator.number_entry.get() == ""
+
+
+def test_button_modulus(calculator):
+    calculator.number_entry.insert(0, "25")
+    calculator.modulus()
+    assert calculator.math == "modulus"
+    assert calculator.f_num == 25
+    assert calculator.number_entry.get() == ""
+
+
+def calculator(calculator):
+    calculator.number_entry.insert(0, "25")
+    calculator.sqrt()
+    assert calculator.number_entry.get() == "5.0"
+
+
+def test_button_neg_positive_number(calculator):
+    calculator.number_entry.insert(0, "7")
+    calculator.neg()
+    assert calculator.number_entry.get() == "-7"
+
+
+def test_button_neg_negative_number(calculator):
+    calculator.number_entry.insert(0, "-10")
+    calculator.neg()
+    assert calculator.number_entry.get() == "10"
+
+
+def test_button_neg_zero(calculator):
+    calculator.number_entry.insert(0, "0")
+    calculator.neg()
+    assert calculator.number_entry.get() == "0"
